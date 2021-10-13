@@ -5,11 +5,12 @@
 - [What is Y2H-in-frame-seq?](#What-is-Y2H-in-frame-seq)
 
 - [Usage](#Usage)
-  + [Step 1 : trim of vector sequence](#trim-of-vector-sequence)
-  + [Step 2 : mapping the trimmed reads to CDS file](#calculate-the-ORF)
-  + [Step 2 : Collection of in-frame reads](#calculate-the-ORF)
-  + [Step 3 : translate the ORF into peptides](#translate-the-ORF-into-peptides])
-  + [Step 5 : sum the abundance from SAM file](#sum-the-abundance-from-SAM-file)
+  + [Step 1 : Trimming of the vector sequence](#trimming-of-the-vector-sequence)
+  + [Step 2 : Mapping the trimmed reads to CDS file](#mapping-the-trimmed-reads-to-CDS-file)
+  + [Step 3 : Collection of the in-frame reads](#collection-of-the-in-frame-reads)
+  + [Step 4 : Translate the in-frame reads into polypeptides](#translate-the-in-frame-reads-into-polypeptides])
+  + [Step 5 : Removal of short ORF](#removal-of-short-ORF)
+  
 - [Outputs](#Outputs)
 
 ## What is Y2H-in-frame-seq?
@@ -32,7 +33,7 @@ The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that ha
 Current version can not automatically make the plots as shown in paper.
 **Thus, We highly recommend you to choose other tools, such as Y2H-SCORES.**
 
-### step 1 : trim of vector sequence
+### Step 1 : Trimming of the vector sequence
 ```
 
 $ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean.fastq
@@ -42,14 +43,14 @@ $ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean
 **“CCATGGAGGCCAGTGAATTCGGCACGAGG”** is our vector sequence, you should change the sequence to your vector 
 
 
-### Step 2 : mapping the trimmed reads to CDS file
+### Step 2 : Mapping the trimmed reads to CDS file
 ```
 
 $ hisat2 -p 10 -x /path_to_CDS_index_file/index_file_name -U output.cutadapt.fastq -S output.sam
 
 ```
 
-### Example 3 : collection of in-frame reads
+### Step 3 : Collection of in-frame reads
 ```
 
 $ python capture_mapped.py output.sam output_mapped.sam
@@ -58,9 +59,7 @@ $ python inframe.py output_mapped.sam output_inframe.sam
 
 ```
 
-
-
-### Example 4 : run MutMap from multiple FASTQs and BAMs
+### Step 4 : run MutMap from multiple FASTQs and BAMs
 ```
 $ mutmap -r reference.fasta \
          -c cultivar_1.1.fastq,cultivar_1.2.fastq \
