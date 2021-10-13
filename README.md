@@ -85,7 +85,7 @@ $ sed -i 's/.//' output_inframe_STOP_ID.list
 $ picard FilterSamReads -I output_inframe.sam -O output_inframe_filtered.sam --READ_LIST_FILE output_inframe_STOP_ID.list --FILTER excludeReadList
 
 ```
-### Step 5 : Removal of short ORF
+### Step 5 : Calculate read-count
 
 ```
 python find_mapped_gene.py output_inframe_filtered.sam output_inframe_filtered_ID.list
