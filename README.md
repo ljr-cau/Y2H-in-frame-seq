@@ -85,12 +85,12 @@ $ sed -i 's/.//' output_inframe_STOP_ID.list
 $ picard FilterSamReads -I output_inframe.sam -O output_inframe_filtered.sam --READ_LIST_FILE output_inframe_STOP_ID.list --FILTER excludeReadList
 
 ```
-### Step 5 : Calculate read-count
+### Step 6 : Calculate read-count
 
 ```
-python find_mapped_gene.py output_inframe_filtered.sam output_inframe_filtered_ID.list
+$ python find_mapped_gene.py output_inframe_filtered.sam output_inframe_filtered_ID.list
 
-python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filtered_read_count.txt
+$ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filtered_read_count.txt
 
 ```
 
