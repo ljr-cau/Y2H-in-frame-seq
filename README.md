@@ -6,12 +6,11 @@
 
 - [Usage](#Usage)
   + [Step 1 : Trimming of the vector sequence](#Step-1--Trimming-of-the-vector-sequence)
-  + [Step 2 : Mapping the trimmed reads to CDS file](#mapping-the-trimmed-reads-to-CDS-file)
-  + [Step 3 : Collection of the in-frame reads](#collection-of-the-in-frame-reads)
-  + [Step 4 : Translate the in-frame reads into polypeptides](#translate-the-in-frame-reads-into-polypeptides])
-  + [Step 5 : Removal of short ORF](#removal-of-short-ORF)
-  + [Step 6 : Calculate read-count](#calculate-read-count) 
-
+  + [Step 2 : Mapping the trimmed reads to CDS file](#Step-2--Mapping-the-trimmed-reads-to-CDS-file)
+  + [Step 3 : Collection of the in-frame reads](#Step-3--Collection-of-in-frame-reads)
+  + [Step 4 : Translate the in-frame reads into polypeptides](#Step-4--Translate-the-in-frame-reads-into-polypeptides])
+  + [Step 5 : Removal of short ORF](#Step-5--Removal-of-short-ORF)
+  + [Step 6 : Calculate read-count](#Step-6--Calculate-read-count) 
 
 - [Outputs](#Outputs)
 
