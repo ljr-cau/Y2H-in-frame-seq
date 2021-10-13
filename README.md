@@ -34,6 +34,7 @@ Current version can not automatically make the plots as shown in paper.
 
 ### step 1 : trim of vector sequence
 ```
+
 $ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean.fastq
        
 ```
@@ -43,12 +44,14 @@ $ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean
 
 ### Step 2 : mapping the trimmed reads to CDS file
 ```
+
 $ hisat2 -p 10 -x /path_to_CDS_index_file/index_file_name -U output.cutadapt.fastq -S output.sam
 
 ```
 
 ### Example 3 : collection of in-frame reads
 ```
+
 $ python capture_mapped.py output.sam output_mapped.sam
 
 $ python inframe.py output_mapped.sam output_inframe.sam
