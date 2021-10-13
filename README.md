@@ -5,7 +5,7 @@
 - [What is Y2H-in-frame-seq?](#What-is-Y2H-in-frame-seq)
 
 - [Usage](#Usage)
-  + [Step 1 : Trimming of the vector sequence](#trimming-of-the-vector-sequence)
+  + [Step 1 : Trimming of the vector sequence](#Trimming of the vector sequence) 
   + [Step 2 : Mapping the trimmed reads to CDS file](#mapping-the-trimmed-reads-to-CDS-file)
   + [Step 3 : Collection of the in-frame reads](#collection-of-the-in-frame-reads)
   + [Step 4 : Translate the in-frame reads into polypeptides](#translate-the-in-frame-reads-into-polypeptides])
@@ -94,4 +94,11 @@ $ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filt
 
 ```
 
+## Related Efforts
 
+- [Art of Readme](https://github.com/noffle/art-of-readme) - 💌 Learn the art of writing quality READMEs.
+- [open-source-template](https://github.com/davidbgk/open-source-template/) - A README template to encourage open-source contributions.
+
+## Maintainers
+
+[@ljr-cau](https://github.com/ljr-cau).
