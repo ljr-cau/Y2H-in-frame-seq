@@ -7,7 +7,7 @@
 - [Usage](#Usage)
   + [Step 1 : trim of vector sequence](#trim-of-vector-sequence)
   + [Step 2 : mapping the trimmed reads to CDS file](#calculate-the-ORF)
-  + [Step 2 : calculate the ORF](#calculate-the-ORF)
+  + [Step 2 : Collection of in-frame reads](#calculate-the-ORF)
   + [Step 3 : translate the ORF into peptides](#translate-the-ORF-into-peptides])
   + [Step 5 : sum the abundance from SAM file](#sum-the-abundance-from-SAM-file)
 - [Outputs](#Outputs)
@@ -38,49 +38,24 @@ $ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean
        
 ```
 
-**CCATGGAGGCCAGTGAATTCGGCACGAGG** is our vector sequence, you should change the sequence to your vector 
+**“CCATGGAGGCCAGTGAATTCGGCACGAGG”** is our vector sequence, you should change the sequence to your vector 
 
 
-### Step 2 : run MutMap from FASTQ with trimming
+### Step 2 : mapping the trimmed reads to CDS file
 ```
-$ mutmap -r reference.fasta \
-         -c cultivar.1.fastq,cultivar.2.fastq \
-         -b bulk.1.fastq,bulk.2.fastq \
-         -n 20 \
-         -o example_dir \
-         -T
+$ hisat2 -p 10 -x /path_to_CDS_index_file/index_file_name -U output.cutadapt.fastq -S output.sam
+
 ```
 
-`-r` : reference fasta
-
-`-c` : FASTQs of cultivar. Please input pair-end reads separated by comma. FASTQs can be gzipped.
-
-`-b` : FASTQs of bulk. Please input pair-end reads separated by comma. FASTQs can be gzipped.
-
-`-n` : number of individuals in mutant bulk.
-
-`-o` : name of output directory. Specified name cannot exist.
-
-`-T` : trim your reads by trimmomatic.
-
-### Example 3 : run MutMap from BAM
+### Example 3 : collection of in-frame reads
 ```
-$ mutmap -r reference.fasta \
-         -c cultivar.bam \
-         -b bulk.bam \
-         -n 20 \
-         -o example_dir
+$ python capture_mapped.py output.sam output_mapped.sam
+
+$ python inframe.py output_mapped.sam output_inframe.sam
+
 ```
 
-`-r` : reference fasta
 
-`-c` : BAM of cultivar.
-
-`-b` : BAM of bulk.
-
-`-n` : number of individuals in mutant bulk.
-
-`-o` : name of output directory. Specified name cannot exist.
 
 ### Example 4 : run MutMap from multiple FASTQs and BAMs
 ```
