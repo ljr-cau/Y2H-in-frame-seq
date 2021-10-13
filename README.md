@@ -44,9 +44,7 @@ $ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean
 
 ### Step 2 : Mapping the trimmed reads to CDS file
 ```
-
 $ hisat2 -p 10 -x /path_to_CDS_index_file/index_file_name -U output.cutadapt.fastq -S output.sam
-
 ```
 
 ### Step 3 : Collection of in-frame reads
@@ -57,41 +55,27 @@ $ python inframe.py output_mapped.sam output_inframe.sam
 
 ### Step 4 : Translate the in-frame reads into polypeptides
 ```
-
 $ samtools fastq output_inframe.sam > output_inframe.fastq
-
 $ perl fq_all2std.pl fq2fa output_inframe.fastq > output_inframe.fa
-
 $ python translate.py output_inframe.fa > output_inframe.aa
-
 ```
 
 ### Step 5 : Removal of short ORF
-
 ```
-
 $ grep -B 1 '*' output_inframe.aa > output_inframe_STOP_list.txt
-
 $ grep '>' output_inframe_STOP_list.txt > output_inframe_STOP_ID.list
-
 $ sed -i 's/.//' output_inframe_STOP_ID.list
-
 $ picard FilterSamReads -I output_inframe.sam -O output_inframe_filtered.sam --READ_LIST_FILE output_inframe_STOP_ID.list --FILTER excludeReadList
-
 ```
-### Step 6 : Calculate read-count
 
+### Step 6 : Calculate read-count
 ```
 $ python find_mapped_gene.py output_inframe_filtered.sam output_inframe_filtered_ID.list
-
 $ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filtered_read_count.txt
-
 ```
 
 ## Related Efforts
-
-- [Y2H-SCORES](https://github.com/Wiselab2/Y2H-SCORES)
+[Y2H-SCORES](https://github.com/Wiselab2/Y2H-SCORES)
 
 ## Maintainers
-
 [@ljr-cau](https://github.com/ljr-cau).
