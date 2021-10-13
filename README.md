@@ -22,7 +22,7 @@ The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that ha
 - Yinghui Gu, Guannan Li, Ping Wang, Yan Guo, Jingrui Li. A simple and precise method (Y2H-in-frame-seq) improves yeast two-hybrid screening with cDNA libraries. Under revision
 
 #### Other Softwares 
-- [cutadapt](https://cutadapt.readthedocs.io/en/stable/)
+- [Cutadapt](https://cutadapt.readthedocs.io/en/stable/)
 - [Hisat2](http://daehwankimlab.github.io/hisat2/)
 - [SAMtools](http://samtools.sourceforge.net/)
 - [fq_all2std.pl](https://github.com/josephhughes/Sequence-manipulation/blob/master/fq_all2std.pl)
@@ -36,9 +36,7 @@ Current version can not automatically make the plots as shown in paper.
 
 ### Step 1 : Trimming of the vector sequence
 ```
-
-$ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean.fastq
-       
+$ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean.fastq  
 ```
 
 **“CCATGGAGGCCAGTGAATTCGGCACGAGG”** is our vector sequence, you should change the sequence to your vector 
@@ -53,11 +51,8 @@ $ hisat2 -p 10 -x /path_to_CDS_index_file/index_file_name -U output.cutadapt.fas
 
 ### Step 3 : Collection of in-frame reads
 ```
-
 $ python capture_mapped.py output.sam output_mapped.sam
-
 $ python inframe.py output_mapped.sam output_inframe.sam
-
 ```
 
 ### Step 4 : Translate the in-frame reads into polypeptides
@@ -95,8 +90,7 @@ $ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filt
 
 ## Related Efforts
 
-- [Art of Readme](https://github.com/noffle/art-of-readme) - 💌 Learn the art of writing quality READMEs.
-- [open-source-template](https://github.com/davidbgk/open-source-template/) - A README template to encourage open-source contributions.
+- [Y2H-SCORES](https://github.com/Wiselab2/Y2H-SCORES)
 
 ## Maintainers
 
