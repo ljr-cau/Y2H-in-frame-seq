@@ -31,16 +31,14 @@ The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that ha
 
 ## Usage
 
-Current version can not automatically make the plots as shown in paper.
-**Thus, We highly recommend you to choose other tools, such as Y2H-SCORES.**
+Either single-end or paired-end sequence data can be used and only the Read_1 is needed.
 
 ### Step 1 : Trimming of the vector sequence
 ```
 $ cutadapt -g CCATGGAGGCCAGTGAATTCGGCACGAGG -m 10 -o output.cutadapt.fastq clean.fastq  
 ```
 
-**“CCATGGAGGCCAGTGAATTCGGCACGAGG”** is our vector sequence, you should change the sequence to your vector 
-
+“CCATGGAGGCCAGTGAATTCGGCACGAGG” is our vector sequence, you should change the sequence according your vector. 
 
 ### Step 2 : Mapping the trimmed reads to CDS file
 ```
@@ -52,6 +50,8 @@ $ hisat2 -p 10 -x /path_to_CDS_index_file/index_file_name -U output.cutadapt.fas
 $ python capture_mapped.py output.sam output_mapped.sam
 $ python inframe.py output_mapped.sam output_inframe.sam
 ```
+
+The inframe.py script can distinguish in-frame reads from non-inframe reads by using the position information in SAM file.
 
 ### Step 4 : Translate the in-frame reads into polypeptides
 ```
@@ -67,6 +67,8 @@ $ grep '>' output_inframe_STOP_list.txt > output_inframe_STOP_ID.list
 $ sed -i 's/.//' output_inframe_STOP_ID.list
 $ picard FilterSamReads -I output_inframe.sam -O output_inframe_filtered.sam --READ_LIST_FILE output_inframe_STOP_ID.list --FILTER excludeReadList
 ```
+
+The in-frame reads that encoding a shorter polypeptide (less than 30 amino acids) are removed at this step. 
 
 ### Step 6 : Calculate read-count
 ```
