@@ -20,3 +20,89 @@ The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that ha
 
 #### Citation
 - Yinghui Gu, Guannan Li, Ping Wang, Yan Guo, Jingrui Li. A simple and precise method (Y2H-in-frame-seq) improves yeast two-hybrid screening with cDNA libraries. Under revision
+
+## Usage
+
+Current version can not plot too contiguous reference genome.
+**We highly recommend you to run MutMap without spcifying '--species' for multiple testing correction, initially.**
+
+```
+
+MutMap can run from FASTQ (without or with trimming) and BAM. If you want to run MutMap from VCF, please use MutPlot (example 5). Once you run MutMap, MutMap automatically complete the subprocesses.
+
++ [Example 1 : run MutMap from FASTQ without trimming](#Example-1--run-MutMap-from-FASTQ-without-trimming)
++ [Example 2 : run MutMap from FASTQ with trimming](#Example-2--run-MutMap-from-FASTQ-with-trimming)
++ [Example 3 : run MutMap from BAM](#Example-3--run-MutMap-from-BAM)
++ [Example 4 : run MutMap from multiple FASTQs and BAMs](#Example-4--run-MutMap-from-multiple-FASTQs-and-BAMs)
++ [Example 5 : run MutPlot from VCF](#Example-5--run-MutPlot-from-VCF)
+
+### Example 1 : run MutMap from FASTQ without trimming
+```
+$ mutmap -r reference.fasta \
+         -c cultivar.1.fastq,cultivar.2.fastq \
+         -b bulk.1.fastq,bulk.2.fastq \
+         -n 20 \
+         -o example_dir
+```
+
+`-r` : reference fasta
+
+`-c` : FASTQs of cultivar. Please input pair-end reads separated by comma. FASTQs can be gzipped.
+
+`-b` : FASTQs of bulk. Please input pair-end reads separated by comma. FASTQs can be gzipped.
+
+`-n` : number of individuals in mutant bulk.
+
+`-o` : name of output directory. Specified name cannot exist.
+
+### Example 2 : run MutMap from FASTQ with trimming
+```
+$ mutmap -r reference.fasta \
+         -c cultivar.1.fastq,cultivar.2.fastq \
+         -b bulk.1.fastq,bulk.2.fastq \
+         -n 20 \
+         -o example_dir \
+         -T
+```
+
+`-r` : reference fasta
+
+`-c` : FASTQs of cultivar. Please input pair-end reads separated by comma. FASTQs can be gzipped.
+
+`-b` : FASTQs of bulk. Please input pair-end reads separated by comma. FASTQs can be gzipped.
+
+`-n` : number of individuals in mutant bulk.
+
+`-o` : name of output directory. Specified name cannot exist.
+
+`-T` : trim your reads by trimmomatic.
+
+### Example 3 : run MutMap from BAM
+```
+$ mutmap -r reference.fasta \
+         -c cultivar.bam \
+         -b bulk.bam \
+         -n 20 \
+         -o example_dir
+```
+
+`-r` : reference fasta
+
+`-c` : BAM of cultivar.
+
+`-b` : BAM of bulk.
+
+`-n` : number of individuals in mutant bulk.
+
+`-o` : name of output directory. Specified name cannot exist.
+
+### Example 4 : run MutMap from multiple FASTQs and BAMs
+```
+$ mutmap -r reference.fasta \
+         -c cultivar_1.1.fastq,cultivar_1.2.fastq \
+         -c cultivar_1.bam \
+         -b bulk_1.1.fastq,bulk_1.2.fastq \
+         -b bulk_2.bam \
+         -b bulk_3.bam \
+         -n 20 \
+         -o example_dir
