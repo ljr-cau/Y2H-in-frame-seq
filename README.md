@@ -3,7 +3,6 @@
 
 ## Table of contents
 - [What is Y2H-in-frame-seq?](#What-is-Y2H-in-frame-seq)
-
 - [Usage](#Usage)
   + [Step 1 : Trimming of the vector sequence](#Step-1--Trimming-of-the-vector-sequence)
   + [Step 2 : Mapping the trimmed reads to CDS file](#Step-2--Mapping-the-trimmed-reads-to-CDS-file)
@@ -11,8 +10,9 @@
   + [Step 4 : Translate the in-frame reads into polypeptides](#Step-4--Translate-the-in-frame-reads-into-polypeptides)
   + [Step 5 : Removal of short ORF](#Step-5--Removal-of-short-ORF)
   + [Step 6 : Calculate read-count](#Step-6--Calculate-read-count) 
-
 - [Outputs](#Outputs)
+- [Maintainers](#maintainers)
+- [Contributing](#contributing)
 
 ## What is Y2H-in-frame-seq?
 
