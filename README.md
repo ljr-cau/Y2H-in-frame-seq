@@ -10,7 +10,9 @@
   + [Step 3 : Collection of the in-frame reads](#collection-of-the-in-frame-reads)
   + [Step 4 : Translate the in-frame reads into polypeptides](#translate-the-in-frame-reads-into-polypeptides])
   + [Step 5 : Removal of short ORF](#removal-of-short-ORF)
-  
+  + [Step 6 : Calculate read-count](#calculate-read-count)
+
+
 - [Outputs](#Outputs)
 
 ## What is Y2H-in-frame-seq?
@@ -24,9 +26,9 @@ The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that ha
 - [cutadapt](https://cutadapt.readthedocs.io/en/stable/)
 - [Hisat2](http://daehwankimlab.github.io/hisat2/)
 - [SAMtools](http://samtools.sourceforge.net/)
-- [BCFtools](http://samtools.github.io/bcftools/)
-- [SnpEff](http://snpeff.sourceforge.net/)
-- [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
+- [fq_all2std.pl](https://github.com/josephhughes/Sequence-manipulation/blob/master/fq_all2std.pl)
+- [FilterSamReads(Picard)](https://gatk.broadinstitute.org/hc/en-us/articles/360036882611-FilterSamReads-Picard-)
+
 
 ## Usage
 
@@ -59,13 +61,37 @@ $ python inframe.py output_mapped.sam output_inframe.sam
 
 ```
 
-### Step 4 : run MutMap from multiple FASTQs and BAMs
+### Step 4 : Translate the in-frame reads into polypeptides
 ```
-$ mutmap -r reference.fasta \
-         -c cultivar_1.1.fastq,cultivar_1.2.fastq \
-         -c cultivar_1.bam \
-         -b bulk_1.1.fastq,bulk_1.2.fastq \
-         -b bulk_2.bam \
-         -b bulk_3.bam \
-         -n 20 \
-         -o example_dir
+
+$ samtools fastq output_inframe.sam > output_inframe.fastq
+
+$ perl fq_all2std.pl fq2fa output_inframe.fastq > output_inframe.fa
+
+$ python translate.py output_inframe.fa > output_inframe.aa
+
+```
+
+### Step 5 : Removal of short ORF
+
+```
+
+$ grep -B 1 '*' output_inframe.aa > output_inframe_STOP_list.txt
+
+$ grep '>' output_inframe_STOP_list.txt > output_inframe_STOP_ID.list
+
+$ sed -i 's/.//' output_inframe_STOP_ID.list
+
+$ picard FilterSamReads -I output_inframe.sam -O output_inframe_filtered.sam --READ_LIST_FILE output_inframe_STOP_ID.list --FILTER excludeReadList
+
+```
+### Step 5 : Removal of short ORF
+
+```
+python find_mapped_gene.py output_inframe_filtered.sam output_inframe_filtered_ID.list
+
+python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filtered_read_count.txt
+
+```
+
+
