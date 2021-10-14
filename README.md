@@ -113,7 +113,7 @@ $ head output_inframe_filtered_read_count.txt
   
 
 ## Related Efforts
-[Y2H-SCORES](https://github.com/Wiselab2/Y2H-SCORES)
+[NGPINT](https://github.com/Wiselab2/NGPINT)/[Y2H-SCORES](https://github.com/Wiselab2/Y2H-SCORES)
 
 ## Maintainers
 [@ljr-cau](https://github.com/ljr-cau).
