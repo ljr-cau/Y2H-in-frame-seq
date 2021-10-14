@@ -107,7 +107,7 @@ $ head output_inframe_filtered_read_count.txt
 ```
 <img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe_filtered_read_count.png" width=150>
   
-  - **columns in this order**
+#### columns in this order ####
   - **Transcript-ID**
   - **read-count**
   
