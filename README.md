@@ -8,7 +8,7 @@
   + [Step 2 : Mapping trimmed reads to CDS](#Step-2--Mapping-trimmed-reads-to-CDS)
   + [Step 3 : Collecting the in-frame reads](#Step-3--Collecting-the-in-frame-reads)
   + [Step 4 : Translating the in-frame reads into polypeptides](#Step-4--Translating-the-in-frame-reads-into-polypeptides)
-  + [Step 5 : Removal of short ORF](#Step-5--Removal-of-short-ORF)
+  + [Step 5 : Removing short ORF](#Step-5--Removal-of-short-ORF)
   + [Step 6 : Calculating read-count](#Step-6--Calculating-read-count) 
 - [Outputs](#Outputs)
 - [Related Efforts](#related-efforts)
@@ -65,7 +65,7 @@ $ perl fq_all2std.pl fq2fa output_inframe.fastq > output_inframe.fa
 $ python translate.py output_inframe.fa > output_inframe.aa
 ```
 
-### Step 5 : Removal of short ORF
+### Step 5 : Removing short ORF
 ```
 $ grep -B 1 '*' output_inframe.aa > output_inframe_STOP_list.txt
 $ grep '>' output_inframe_STOP_list.txt > output_inframe_STOP_ID.list
