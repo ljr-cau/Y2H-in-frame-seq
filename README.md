@@ -83,8 +83,8 @@ $ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filt
 
 ## Outputs
 - You can check the results files.
-  - `output_inframe.aa`  
-  $ head output_inframe.aa
+  - `##output_inframe.aa##`  
+$ head output_inframe.aa
   >A00679:442:HLCHWDSXY:2:1101:31078:1016
   SIS*IKMAAPFALRKIGVPPNSANLTEARR
   >A00679:442:HLCHWDSXY:2:1101:3586:1031
