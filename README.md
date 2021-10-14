@@ -87,7 +87,7 @@ $ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filt
 ```
 $ head output_inframe.aa
 ```
-<img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe.aa.jpg" width=350>
+<img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe.aa.jpg" width=300>
 
 
   
