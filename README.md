@@ -8,7 +8,7 @@
   + [Step 2 : Mapping trimmed reads to CDS](#Step-2--Mapping-trimmed-reads-to-CDS)
   + [Step 3 : Collecting the in-frame reads](#Step-3--Collecting-the-in-frame-reads)
   + [Step 4 : Translating the in-frame reads into polypeptides](#Step-4--Translating-the-in-frame-reads-into-polypeptides)
-  + [Step 5 : Removing short ORF](#Step-5--Removal-of-short-ORF)
+  + [Step 5 : Removing short ORF](#Step-5--Removing-short-ORF)
   + [Step 6 : Calculating read-count](#Step-6--Calculating-read-count) 
 - [Outputs](#Outputs)
 - [Related Efforts](#related-efforts)
