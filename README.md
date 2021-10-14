@@ -101,36 +101,16 @@ $ head output_inframe_STOP_ID.list
 ```
 <img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe_STOP_ID.list.png" width=300>
 
+- ### ooutput_inframe_filtered_read_count.txt ###
+```
+$ head output_inframe_filtered_read_count.txt
+```
+<img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe_filtered_read_count.png" width=200>
   
+  - **columns in this order**
+  - **Transcript-ID**
+  - **read-count**
   
-  
-  
-  
-  
-  
-      
-      
-      
-  - `output_inframe.aa` 
-    - **CHROM** : chromosome name
-    - **POSI** : position in chromosome
-    - **VARIANT** : SNP or INDEL
-    - **DEPTH** : depth of bulk
-    - **p99** : 99% confidence interval of simulated SNP-index
-    - **p95** : 95% confidence interval of simulated SNP-index
-    - **SNP-index** : real SNP-index
-  + `sliding_window.tsv` : columns in this order.
-    - **CHROM** : chromosome name
-    - **POSI** : central position of window
-    - **MEAN p99** : mean of p99
-    - **MEAN p95** : mean of p95
-    - **MEAN SNP-index** : mean SNP-index
-  + `mutmap_plot.png` : resulting plot (like below)
-    - **<span style="color: blue; ">BLUE dot</span>** : variant
-    - **<span style="color: red; ">RED line</span>** : mean SNP-index
-    - **<span style="color: orange; ">ORANGE line</span>** : mean p99
-    - **<span style="color: green; ">GREEN line</span>** : mean p95
-
 
 ## Related Efforts
 [Y2H-SCORES](https://github.com/Wiselab2/Y2H-SCORES)
