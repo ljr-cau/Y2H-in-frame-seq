@@ -16,7 +16,11 @@
 
 ## What is Y2H-in-frame-seq?
 
-The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that has been widely used for large-scale screening of interacting proteins within well-constructed ORFeomes or raw cDNA libraries. Recently, the next-generation sequencing (NGS) was adapted to Y2H screening which significantly increased the efficiency and sensitivity, while reducing the labor and experimental cost. We developed a novel simple NGS-based method (named Y2H-in-frame-seq) to accomplish a more precise Y2H screening with cDNA libraries. By using newly designed primers, the NGS reads containing 5’ end of prey inserts were dramatically enriched. With 5’ end information, we can distinguish and filter out those non-in-frame reads from all mapped reads, which further improves the estimation of the interaction intensity between bait and prey. The experimental design of our new method is also compatible with some recently developed quantification methods (Banerjee et al., 2020; Velasquez-Zapata et al., 2021). Thus, a combination of our Y2H-in-frame-seq and NGPINT/Y2H-SCORES was also highly recommanded.
+The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that has been widely used for large-scale screening of interacting proteins within well-constructed ORFeomes or raw cDNA libraries. However, Y2H screening with cDNA libraries would result in false positive and/or false negative, which may be caused by a large fraction of non-natural ORFs contained in cDNA libraries. Thus, we developed a novel simple NGS-based method (named Y2H-in-frame-seq) to accomplish a more precise Y2H screening with cDNA libraries. By using newly designed primers, the NGS reads containing 5’ end of prey inserts were dramatically enriched (see Gu et al, 2021 for more details). With 5’ end information, we can distinguish and filter out those non-in-frame reads from all mapped reads, which further improves the estimation of the interaction intensity between bait and prey.
+
+Comparing to canonical NGS-based Y2H method, our new method doesn’t need to generate a new cDNA library or to change workflow of classic Y2H-NIGS protocol. The only change you should follow is to synthesize a pair of primers and used our Python script or other compatible software. The experimental design of Y2H-in-frame-seq is also compatible with recently developed quantification methods, such as NGPINT/Y2H-SCORES (Banerjee et al., 2020; Velasquez-Zapata et al., 2021). 
+
+
 
 #### Citation
 - Yinghui Gu, Guannan Li, Ping Wang, Yan Guo, Jingrui Li. A simple and precise method (Y2H-in-frame-seq) improves yeast two-hybrid screening with cDNA libraries. Under revision
@@ -31,7 +35,8 @@ The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that ha
 
 ## Usage
 
-Either single-end or paired-end sequence data can be used and only the Read_1 is needed.
+The canonical for Y2H screen 
+Either single-end or paired-end sequencing data can be used and only the Read_1 is needed.
 
 ### Step 1 : Trimming of the vector sequence
 ```
