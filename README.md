@@ -89,6 +89,17 @@ $ head output_inframe.aa
 ```
 <img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe.aa.jpg" width=300>
 
+- ### output_inframe_STOP_list.txt ###
+```
+$ head output_inframe_STOP_list.txt
+```
+<img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe_STOP_list.png" width=300>
+
+- ### output_inframe_STOP_ID.list ###
+```
+$ head output_inframe_STOP_ID.list
+```
+<img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/output_inframe_STOP_ID.list.png" width=300>
 
   
   
