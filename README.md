@@ -11,8 +11,9 @@
   + [Step 5 : Removal of short ORF](#Step-5--Removal-of-short-ORF)
   + [Step 6 : Calculate read-count](#Step-6--Calculate-read-count) 
 - [Outputs](#Outputs)
+- [Related Efforts](#related-efforts)
 - [Maintainers](#maintainers)
-- [Contributing](#contributing)
+
 
 ## What is Y2H-in-frame-seq?
 
@@ -35,7 +36,6 @@ Comparing to canonical NGS-based Y2H method, our new method doesn’t need to ge
 
 ## Usage
 
-The canonical for Y2H screen 
 Either single-end or paired-end sequencing data can be used and only the Read_1 is needed.
 
 ### Step 1 : Trimming of the vector sequence
@@ -80,6 +80,41 @@ The in-frame reads that encoding a shorter polypeptide (less than 30 amino acids
 $ python find_mapped_gene.py output_inframe_filtered.sam output_inframe_filtered_ID.list
 $ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filtered_read_count.txt
 ```
+
+## Outputs
+- You can check the results files.
+  - `output_inframe.aa` 
+    $ head output_inframe.aa
+    >A00679:442:HLCHWDSXY:2:1101:31078:1016
+    SIS*IKMAAPFALRKIGVPPNSANLTEARR
+    >A00679:442:HLCHWDSXY:2:1101:3586:1031
+    NLSIDSDNPQHSAMKPDPTRRRNRALSSSS
+    >A00679:442:HLCHWDSXY:2:1101:4878:1078
+    HMNKGAWTKEEDQLLVDYIRKHGEGCWRSL
+    >A00679:442:HLCHWDSXY:2:1101:6506:1078
+    RTSTFKDPVKTKIREDEEKKPGFLKMASDP
+    >A00679:442:HLCHWDSXY:2:1101:8585:1078
+    EHVMMKQRKSQRSPAKTRTQVTGNNYPTRR
+  - `output_inframe.aa` 
+    - **CHROM** : chromosome name
+    - **POSI** : position in chromosome
+    - **VARIANT** : SNP or INDEL
+    - **DEPTH** : depth of bulk
+    - **p99** : 99% confidence interval of simulated SNP-index
+    - **p95** : 95% confidence interval of simulated SNP-index
+    - **SNP-index** : real SNP-index
+  + `sliding_window.tsv` : columns in this order.
+    - **CHROM** : chromosome name
+    - **POSI** : central position of window
+    - **MEAN p99** : mean of p99
+    - **MEAN p95** : mean of p95
+    - **MEAN SNP-index** : mean SNP-index
+  + `mutmap_plot.png` : resulting plot (like below)
+    - **<span style="color: blue; ">BLUE dot</span>** : variant
+    - **<span style="color: red; ">RED line</span>** : mean SNP-index
+    - **<span style="color: orange; ">ORANGE line</span>** : mean p99
+    - **<span style="color: green; ">GREEN line</span>** : mean p95
+
 
 ## Related Efforts
 [Y2H-SCORES](https://github.com/Wiselab2/Y2H-SCORES)
