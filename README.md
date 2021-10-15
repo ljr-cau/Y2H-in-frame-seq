@@ -79,6 +79,7 @@ The in-frame reads that encoding a shorter polypeptide (less than 30 amino acids
 ```
 $ python find_mapped_gene.py output_inframe_filtered.sam output_inframe_filtered_ID.list
 $ python cal_reads_counts.py output_inframe_filtered_ID.list output_inframe_filtered_read_count.txt
+
 $ python find_mapped_gene_2.py output_inframe_filtered.sam output_inframe_filtered_ID_Start_Position.list
 $ python rm_duplicate.py output_inframe_filtered_ID_Start_Position.list output_inframe_filtered_ID_Start_Position_rmdup.list
 $ awk '{print $1}' output_inframe_filtered_ID_Start_Position_rmdup.list > output_inframe_filtered_ID_rmdup.list
