@@ -17,7 +17,7 @@
 
 ## What is Y2H-in-frame-seq?
 
-<img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/Logo.png" width=300>
+<img src="https://github.com/ljr-cau/Y2H-in-frame-seq/blob/main/images/logo.png" width=300>
 
 The yeast two-hybrid (Y2H) system is a powerful binary interaction assay that has been widely used for large-scale screening of interacting proteins within well-constructed ORFeomes or raw cDNA libraries. However, Y2H screening with cDNA libraries would result in false positive and/or false negative, which may be caused by a large fraction of non-natural ORFs contained in cDNA libraries. Thus, we developed a novel simple NGS-based method (named Y2H-in-frame-seq) to accomplish a more precise Y2H screening with cDNA libraries. By using newly designed primers, the NGS reads containing 5’ end of prey inserts were dramatically enriched (see Gu et al., 2021 for more details). With 5’ end information, we can distinguish and filter out those non-in-frame reads from all mapped reads, which further improves the estimation of the interaction intensity between bait and prey.
 
