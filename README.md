@@ -26,7 +26,7 @@ Comparing to canonical NGS-based Y2H method, our new method doesn’t need to ge
 
 
 #### Citation
-- Yinghui Gu, Guannan Li, Ping Wang, Yan Guo, Jingrui Li. A simple and precise method (Y2H-in-frame-seq) improves yeast two-hybrid screening with cDNA libraries. Under revision
+- Yinghui Gu, Guannan Li, Ping Wang, Yan Guo, Jingrui Li (2021). A simple and precise method (Y2H-in-frame-seq) improves yeast two-hybrid screening with cDNA libraries. Journal of Genetics and Genomics. [(URL)](https://www.sciencedirect.com/science/article/abs/pii/S1673852721003611)
 
 #### Other Softwares 
 - [Cutadapt](https://cutadapt.readthedocs.io/en/stable/)
